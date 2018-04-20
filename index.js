@@ -1,22 +1,22 @@
-import React from 'react'
-import { AppRegistry } from 'react-native'
-import { UIManager } from 'react-native'
-import { ThemeProvider, COLOR } from 'react-native-material-ui'
+import React from 'react';
+import { AppRegistry, UIManager } from 'react-native';
+import { ThemeProvider, COLOR } from 'react-native-material-ui';
 
-import App from './app/native/containers/App'
+import App from './app/native/containers/App';
 
-UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
 
 const uiTheme = {
-    palette: {
-        primaryColor: COLOR.red500,
-    }
+  palette: {
+    primaryColor: COLOR.red500,
+  },
 };
 
 
 const Root = () =>
-  <ThemeProvider uiTheme={uiTheme}>
+  (<ThemeProvider uiTheme={uiTheme}>
     <App />
-  </ThemeProvider>
+  </ThemeProvider>);
 
-AppRegistry.registerComponent('AwesomeProject', () => Root)
+AppRegistry.registerComponent('reactexample1', () => Root);

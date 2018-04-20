@@ -1,14 +1,14 @@
-import React, { Component, PropTypes } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { BottomNavigation as MUIBottomNavigation, Action } from 'react-native-material-ui'
+import { BottomNavigation as MUIBottomNavigation } from 'react-native-material-ui';
 
 const actions = [
-  {label: 'Today', icon: 'bookmark-border'},
-  {label: 'People', icon: 'people'},
-  {label: 'Bookmark', icon: 'bookmark-border'},
-  {label: 'Settings', icon: 'settings'}
-]
+  { label: 'Today', icon: 'bookmark-border' },
+  { label: 'People', icon: 'people' },
+  { label: 'Bookmark', icon: 'bookmark-border' },
+  { label: 'Settings', icon: 'settings' }
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -21,16 +21,16 @@ const styles = StyleSheet.create({
 });
 
 const BottomNavigationUno = props =>
-  <MUIBottomNavigation active={props.active} hidden={false} >
+  (<MUIBottomNavigation active={props.active} hidden={false} >
     {props.actions.map(action =>
       <MUIBottomNavigation.Action
-          key={action.label}
-          icon={action.icon}
-          label={action.label}
-          onPress={props.onPress.bind(null, action.label)}
+        key={action.label}
+        icon={action.icon}
+        label={action.label}
+        onPress={props.onPress.bind(null, action.label)}
       />
     )}
-  </MUIBottomNavigation>
+  </MUIBottomNavigation>);
 
 export default class BottomNavigation extends Component {
   static navigationOptions = {
@@ -39,18 +39,18 @@ export default class BottomNavigation extends Component {
     })
   }
 
-  constructor () {
-    super()
+  constructor() {
+    super();
 
-    this.state = {active: actions[0].label}
-    this.onPress = this.onPress.bind(this)
+    this.state = { active: actions[0].label };
+    this.onPress = this.onPress.bind(this);
   }
 
-  onPress (active) {
-    this.setState({active})
+  onPress(active) {
+    this.setState({ active });
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <View style={styles.bottomNavigation}>
