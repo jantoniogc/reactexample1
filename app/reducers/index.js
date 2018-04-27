@@ -15,3 +15,4 @@ export default function reduce(state = defaultState, action) {
       return state;
   }
 }
+

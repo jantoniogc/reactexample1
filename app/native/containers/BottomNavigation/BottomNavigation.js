@@ -7,7 +7,7 @@ const actions = [
   { label: 'Today', icon: 'bookmark-border' },
   { label: 'People', icon: 'people' },
   { label: 'Bookmark', icon: 'bookmark-border' },
-  { label: 'Settings', icon: 'settings' }
+  { label: 'Settings', icon: 'settings' },
 ];
 
 const styles = StyleSheet.create({
@@ -16,27 +16,26 @@ const styles = StyleSheet.create({
   },
   bottomNavigation: {
     marginTop: 70,
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 const BottomNavigationUno = props =>
   (<MUIBottomNavigation active={props.active} hidden={false} >
     {props.actions.map(action =>
-      <MUIBottomNavigation.Action
+      (<MUIBottomNavigation.Action
         key={action.label}
         icon={action.icon}
         label={action.label}
         onPress={props.onPress.bind(null, action.label)}
-      />
-    )}
-  </MUIBottomNavigation>);
+      />),)}
+   </MUIBottomNavigation>);
 
 export default class BottomNavigation extends Component {
   static navigationOptions = {
     drawer: () => ({
-      label: 'Bottom Navigation'
-    })
+      label: 'Bottom Navigation',
+    }),
   }
 
   constructor() {

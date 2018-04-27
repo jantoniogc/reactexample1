@@ -1,15 +1,44 @@
 {
-  "extends": "airbnb",
   "parser": "babel-eslint",
+  "extends": "eslint-config-airbnb",
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "react/display-name": [ 1, {"ignoreTranspilerName": false }],
+    "jsx": true,
+    "modules": true
+  },
   "rules": {
-    "react/jsx-filename-extension": [
-      0,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ]
+    "react/no-multi-comp": 1,
+    "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
+    "import/default": 1,
+    "import/no-duplicates": 1,
+    "import/named": 1,
+    "import/namespace": 1,
+    "import/no-unresolved": 1,
+    "import/no-named-as-default": 1,
+    "comma-dangle": 0,
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "no-console": 1,
+    "no-unused-vars": 1,
+    "no-alert": 0,
+    "max-len": ["error", 150, 4, {"ignoreUrls": true}],
+    "react/prefer-stateless-function": 0
+  },
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src"]
+    }
+  },
+  "globals": {
   }
 }

@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import StockApp from '../reducers';
+import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import StockApp from '../reducers';
+
 
 
 const composeEnhancers = composeWithDevTools({
