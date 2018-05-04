@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
 import { DrawerNavigator } from 'react-navigation';
 
@@ -13,9 +13,10 @@ import SelectionControls from '../SelectionControls';
 import List from '../List';
 import Gmail from '../Gmail';
 import store from '../../../store2/Store';
-import RutasNoAutenticadas from '../../components/NoAutenticados/RutasNoAutenticadas';
+import Seleccion from './Seleccion';
 
 
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated']);
 console.disableYellowBox = ['Remote debugger'];
 
 const styles = StyleSheet.create({
@@ -31,7 +32,7 @@ const Wrapper = Component => props =>
       {/* <Header onOpenDrawer={() => props.navigation.navigate('DrawerOpen')} />
       <Component /> */}
       <Provider store={store}>
-        <RutasNoAutenticadas />
+        <Seleccion />
       </Provider>
     </View>
   );

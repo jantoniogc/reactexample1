@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes }  from 'react';
 import { View, Button, TextInput, Text, StyleSheet } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 
@@ -65,9 +65,7 @@ const SignInForm = props => (
     <Field name="password" component={fieldNombre} ph="Contraseña" />
     <Button
       title="SignIn"
-      onPress={props.handleSubmit((values) => {
-        console.log(values);
-      })}
+      onPress={props.handleSubmit(props.login)}
     />
   </View>
 );

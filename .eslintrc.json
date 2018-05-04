@@ -21,6 +21,7 @@
     "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
     "import/default": 1,
     "import/no-duplicates": 1,
+    "react/prop-types": 0,
     "import/named": 1,
     "import/namespace": 1,
     "import/no-unresolved": 1,

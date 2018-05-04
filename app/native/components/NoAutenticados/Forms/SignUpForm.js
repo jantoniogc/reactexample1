@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Button, TextInput, Text, StyleSheet } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
-import autenticacion from '../../../../store2/Servicios/firebase';
+
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 3,
+  },
   textInput: {
     marginBottom: 16,
   },
@@ -67,14 +70,14 @@ const validate = (values) => {
 };
 
 const SignUpForm = props => (
-  <View>
+  <View style={styles.container}>
     <Field name="nombre" component={fieldNombre} ph="Nombre" />
     <Field name="correo" component={fieldNombre} ph="Correo" />
     <Field name="password" component={fieldNombre} ph="Contraseña" />
     <Field name="confirmPassw" component={fieldNombre} ph="Confirmar Contraseña" />
     <Button
       title="Registrar"
-      onPress={props.handleSubmit(props.registro)}      
+      onPress={props.handleSubmit(props.registro)}
     />
   </View>);
 
