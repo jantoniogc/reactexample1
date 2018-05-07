@@ -35,8 +35,17 @@ const fieldNombre = props => (
   </View>
 );
 
-const validate = (values) => {
+const fieldImagen = props => (
+  <View>
+    {props.meta.touched && props.meta.error && <Text style={styles.errors}>{props.meta.error}</Text>}
+  </View>
+);
+
+const validate = (values, props) => {
   const errors = {};
+  if (!props.imagen) {
+    errors.imagen = 'Imagen es requerida';
+  }
   const requiredFields = [
     'nombre',
     'correo',
@@ -71,6 +80,7 @@ const validate = (values) => {
 
 const SignUpForm = props => (
   <View style={styles.container}>
+    <Field name="imagen" component={fieldImagen} />
     <Field name="nombre" component={fieldNombre} ph="Nombre" />
     <Field name="correo" component={fieldNombre} ph="Correo" />
     <Field name="password" component={fieldNombre} ph="Contraseña" />

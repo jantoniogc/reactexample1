@@ -1,16 +1,15 @@
 
 // import { Platform } from 'react-native';
-import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { reducer as form } from 'redux-form';
 import { Platform } from 'react-native';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import registrar from './Sagas/sagas';
-import Constantes from './constantes';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import promise from 'redux-promise';
 import devTools from 'remote-redux-devtools';
-
+import registrar from './Sagas/sagas';
+import Constantes from './constantes';
 
 
 const AUMENTAR_REDUCER_PRUEBA = 'AUMENTAR_REDUCER_PRUEBA';
@@ -46,18 +45,30 @@ const reducerImagenSignUp = (state = { imagen: null }, action) => {
   }
 };
 
+const reducerImagenPublicacion = (state = { imagen: null }, action) => {
+  switch (action.type) {
+    case Constantes.CARGAR_IMAGEN_PUBLICACION:
+      return { imagen: action.imagen };
+    case Constantes.LIMPIAR_IMAGEN_PUBLICACION:
+      return { imagen: null };
+    default:
+      return state;
+  }
+};
+
 const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
   reducerPrueba,
   reducerSession,
   reducerImagenSignUp,
+  reducerImagenPublicacion,
   form
 });
 
 
 const enhancer = compose(
-  applyMiddleware(sagaMiddleware, thunk, promise, logger),
+  applyMiddleware(sagaMiddleware, thunk, promise), // , logger),
   devTools({
     name: Platform.OS,
     hostname: 'localhost',

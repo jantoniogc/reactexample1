@@ -34,7 +34,6 @@ const SeleccionarImagen = (props) => {
     };
 
     ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
       if (response.didCancel) {
         console.log('User cancelled photo picker');
       } else if (response.error) {
@@ -42,16 +41,13 @@ const SeleccionarImagen = (props) => {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
       } else {
-        console.log(response.uri);
-        const source = { uri: response.uri };
-
+        const source = { imagen: response };
         // You can also display the image using data:
         // let source = { uri: 'data:image/jpeg;base64,' + response.data };
         props.cargar(source);
       }
     });
   };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={seleccionaUnaImagen}>
@@ -60,7 +56,7 @@ const SeleccionarImagen = (props) => {
             props.imagen ?
               <Image
                 style={styles.ImageContainer}
-                source={props.imagen}
+                source={props.imagen.imagen}
               />
               :
               <Image

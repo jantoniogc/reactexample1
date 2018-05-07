@@ -10,9 +10,8 @@ export const CargarImagenActions = values => ({
   imagen: values
 });
 
-export const LimpiarImagenActions = values => ({
+export const LimpiarImagenActions = () => ({
   type: Constantes.LIMPIAR_IMAGEN_SINGUP,
-  imagen: values
 });
 
 export const LoginActions = values => ({
@@ -27,4 +26,13 @@ export const EstablecerSesionAction = values => ({
 
 export const CerrarSesionAction = () => ({
   type: Constantes.CERRAR_SESSION
+});
+
+export const CargarImagenPublicacionActions = imagen => ({
+  type: Constantes.CARGAR_IMAGEN_PUBLICACION,
+  imagen
+});
+
+export const LimpiarImagenPublicacionActions = ()=> ({
+  type: Constantes.LIMPIAR_IMAGEN_PUBLICACION,
 });

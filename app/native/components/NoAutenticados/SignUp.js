@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 import { connect } from 'react-redux';
+import { blur } from 'redux-form';
 import SignUpForm from './Forms/SignUpForm';
 import {
   RegistroActions,
@@ -30,7 +31,7 @@ class SignUp extends Component {
     return (
       <View style={styles.container}>
         <SeleccionarImagen imagen={this.props.imagen.imagen} cargar={this.props.cargarImagen} />
-        <SignUpForm registro={this.registroDeUsuario} />
+        <SignUpForm registro={this.registroDeUsuario} imagen={this.props.imagen.imagen} />
         <Button
           title="SignIn"
           onPress={() => {
@@ -53,6 +54,7 @@ const mapDispatchToProps = dispatch => ({
   },
   cargarImagen: (values) => {
     dispatch(CargarImagenActions(values));
+    dispatch(blur('SignUpForm', 'imagen', Date.now()));
   },
   limpiarImagen: (values) => {
     dispatch(LimpiarImagenActions(values));
